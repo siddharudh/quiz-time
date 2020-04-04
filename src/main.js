@@ -49,6 +49,13 @@ new Vue({
   },
 
   methods: {
+    start() {
+      for (var i = 0; i < this.scores.length; i++) {
+        Vue.set(this.scores, i, 0)
+      }
+      this.$router.push('/question/1')
+    },
+
     submit() {
       if (this.userAnswer === this.currentQuestion.correct_answer) {
         Vue.set(this.scores, this.qnum - 1, 1)
@@ -68,7 +75,7 @@ new Vue({
 
   mounted() {
     this.loading = true
-    axios.request("https://opentdb.com/api.php?amount=10&category=27&difficulty=easy&type=multiple").then(response => {
+    axios.request("https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple").then(response => {
       this.questions = response.data.results
       this.scores.length = this.questions.length
       this.loading = false

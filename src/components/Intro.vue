@@ -14,7 +14,7 @@
       Let's have some fun and learning together!
     </b-card-text>
 
-    <b-button v-if="$root.questions.length" variant="primary" @click="$router.push('/question/1')">Let's Start</b-button>
+    <b-button v-if="$root.questions.length" variant="primary" @click="$root.start()">Let's Start</b-button>
   </b-card>
 
 </div>
